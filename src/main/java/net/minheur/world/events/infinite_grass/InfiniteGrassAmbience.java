@@ -11,11 +11,8 @@ public class InfiniteGrassAmbience extends AbstractEvent {
         Random random = Random.create();
         boolean far = random.nextBoolean();
 
-        if(far){
-            playDistantSound(world, ModSounds.INFINITE_GRASS_SOUNDEVENT_FAR);
-        } else {
-            playSound(world, ModSounds.INFINITE_GRASS_SOUNDEVENT);
-        }
+        if (far) playDistantSound(world, ModSounds.INFINITE_GRASS_SOUNDEVENT_FAR);
+        else playSound(world, ModSounds.INFINITE_GRASS_SOUNDEVENT);
     }
 
     @Override

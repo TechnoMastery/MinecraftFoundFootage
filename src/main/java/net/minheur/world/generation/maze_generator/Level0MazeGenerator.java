@@ -25,7 +25,7 @@ public class Level0MazeGenerator extends MazeGenerator {
 
     String levelDirectory;
 
-    public Level0MazeGenerator(int size, int rows, int cols, int originX, int originY, String levelDirectory){
+    public Level0MazeGenerator(int size, int rows, int cols, int originX, int originY, String levelDirectory) {
         this.size = size;
         this.rows = rows;
         this.cols = cols;
@@ -99,8 +99,8 @@ public class Level0MazeGenerator extends MazeGenerator {
             }
         }
 
-        for (MazeCell[] cell : grid){
-            for(MazeCell cells: cell){
+        for (MazeCell[] cell : grid) {
+            for(MazeCell cells: cell) {
                 if (cells != null) {
                     cells.drawWalls(world, this.levelDirectory);
                 }
@@ -111,7 +111,7 @@ public class Level0MazeGenerator extends MazeGenerator {
 
     }
 
-    public MazeCell checkNeighbors(MazeCell[][] grid, int y, int x, StructureWorldAccess world){
+    public MazeCell checkNeighbors(MazeCell[][] grid, int y, int x, StructureWorldAccess world) {
         BlockPos.Mutable mutable = new BlockPos.Mutable();
         MazeCell North = null;
         MazeCell West = null;
@@ -145,29 +145,24 @@ public class Level0MazeGenerator extends MazeGenerator {
 
         if (world.getBlockState(mutable.set(currentCell.getWorldXPos(), 19, currentCell.getWorldYPos() + this.size)) == Blocks.LIME_WOOL.getDefaultState() ||
                 world.getBlockState(mutable.set(currentCell.getWorldXPos(), 4, currentCell.getWorldYPos() + this.size)) == Blocks.LIME_WOOL.getDefaultState())
-        {
             currentCell.removeNorthWall();
-        }
-        if (world.getBlockState(mutable.set(currentCell.getWorldXPos(), 19, currentCell.getWorldYPos() - this.size)) == Blocks.LIME_WOOL.getDefaultState())
-        {
-            currentCell.removeSouthWall();
-        }
-        if (world.getBlockState(mutable.set(currentCell.getWorldXPos() + this.size, 19, currentCell.getWorldYPos())) == Blocks.LIME_WOOL.getDefaultState() ||
-                world.getBlockState(mutable.set(currentCell.getWorldXPos() + this.size, 4, currentCell.getWorldYPos())) == Blocks.LIME_WOOL.getDefaultState()){
-            currentCell.removeWestWall();
-        }
-        if (world.getBlockState(mutable.set(currentCell.getWorldXPos() - this.size, 19, currentCell.getWorldYPos())) == Blocks.LIME_WOOL.getDefaultState()){
-            currentCell.removeEastWall();
-        }
 
-        if (!neighbors.isEmpty()){
+        if (world.getBlockState(mutable.set(currentCell.getWorldXPos(), 19, currentCell.getWorldYPos() - this.size)) == Blocks.LIME_WOOL.getDefaultState())
+            currentCell.removeSouthWall();
+
+        if (world.getBlockState(mutable.set(currentCell.getWorldXPos() + this.size, 19, currentCell.getWorldYPos())) == Blocks.LIME_WOOL.getDefaultState() ||
+                world.getBlockState(mutable.set(currentCell.getWorldXPos() + this.size, 4, currentCell.getWorldYPos())) == Blocks.LIME_WOOL.getDefaultState())
+            currentCell.removeWestWall();
+
+        if (world.getBlockState(mutable.set(currentCell.getWorldXPos() - this.size, 19, currentCell.getWorldYPos())) == Blocks.LIME_WOOL.getDefaultState())
+            currentCell.removeEastWall();
+
+
+        if (!neighbors.isEmpty()) {
             Random random = Random.create();
             int r = random.nextBetween(0, neighbors.size() - 1);
             return neighbors.get(r);
-        }
-        else{
-            return null;
-        }
+        } else return null;
 
 
     }

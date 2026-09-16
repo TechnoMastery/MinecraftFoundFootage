@@ -14,8 +14,8 @@ public class ModKeyBinds {
     public static void initializeKeyBinds() {
         toggleFlashlight = KeyBindingHelper.registerKeyBinding(new KeyBinding("key.spb-revamped.toggle_flashlight", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_R, "spb-revamped.keybinds"));
 
-        if (MinecraftClient.getInstance().getSession().getUsername().equals("SppacePotato") || MinecraftClient.getInstance().getSession().getUsername().equals("HerrChaotic") || FabricLoader.getInstance().isDevelopmentEnvironment()) {
-            toggleEvent = KeyBindingHelper.registerKeyBinding(new KeyBinding("key.spb-revamped.toggle_event", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_SEMICOLON, "spb-revamped.keybinds"));
-        }
+        // if (MinecraftClient.getInstance().getSession().getUsername().equals("SppacePotato") || MinecraftClient.getInstance().getSession().getUsername().equals("HerrChaotic") || FabricLoader.getInstance().isDevelopmentEnvironment()) {
+        //     toggleEvent = KeyBindingHelper.registerKeyBinding(new KeyBinding("key.spb-revamped.toggle_event", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_SEMICOLON, "spb-revamped.keybinds"));
+        // }
     }
 }

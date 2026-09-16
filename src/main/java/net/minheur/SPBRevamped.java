@@ -93,9 +93,7 @@ public class SPBRevamped implements ModInitializer {
 		}));
 
 		ServerPlayerEvents.AFTER_RESPAWN.register(((oldPlayer, newPlayer, alive) -> {
-			if(!BackroomsLevels.isInBackrooms(oldPlayer.getWorld().getRegistryKey())) {
-				return;
-			}
+			if(!BackroomsLevels.isInBackrooms(oldPlayer.getWorld().getRegistryKey())) return;
 
 			boolean backupInvulnerable;
 			try {
@@ -129,14 +127,14 @@ public class SPBRevamped implements ModInitializer {
 		}));
 	}
 
-	public static void sendCameraShakePacket(ServerPlayerEntity player, double speed, double trauma){
+	public static void sendCameraShakePacket(ServerPlayerEntity player, double speed, double trauma) {
 		PacketByteBuf buffer = PacketByteBufs.create();
 		buffer.writeDouble(speed);
 		buffer.writeDouble(trauma);
 		ServerPlayNetworking.send(player, InitializePackets.SCREEN_SHAKE, buffer);
 	}
 
-	public static void sendBlackScreenPacket(ServerPlayerEntity player, int duration, boolean shouldPauseSounds, boolean noEscape){
+	public static void sendBlackScreenPacket(ServerPlayerEntity player, int duration, boolean shouldPauseSounds, boolean noEscape) {
 		PacketByteBuf buffer = PacketByteBufs.create();
 		buffer.writeInt(duration);
 		buffer.writeBoolean(shouldPauseSounds);
@@ -144,7 +142,7 @@ public class SPBRevamped implements ModInitializer {
 		ServerPlayNetworking.send(player, InitializePackets.BLACK_SCREEN, buffer);
 	}
 
-	public static void sendPersonalPlaySoundPacket(ServerPlayerEntity player, SoundEvent sound, float volume, float pitch){
+	public static void sendPersonalPlaySoundPacket(ServerPlayerEntity player, SoundEvent sound, float volume, float pitch) {
 		PacketByteBuf buffer = PacketByteBufs.create();
 		buffer.writeRegistryEntry(Registries.SOUND_EVENT.getIndexedEntries(), RegistryEntry.of(sound), (packetByteBuf, soundEvent) -> soundEvent.writeBuf(packetByteBuf));
 		buffer.writeFloat(volume);

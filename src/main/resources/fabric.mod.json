@@ -3,14 +3,15 @@
 	"id": "spb-revamped",
 	"version": "${version}",
 	"name": "SP-Backrooms Revamped",
-	"description": "Spacepotato's Found Footage Mod",
+	"description": "Spacepotato's Found Footage Mod - Updated by Minheur",
 	"authors": [
 		"SpacePotato",
 		"Herr Chaos",
-		"MetaOne - Russian Translation"
+		"MetaOne - Russian Translation",
+		"Min_heur2000 - those updates"
 	],
 	"contact": {
-		"YouTube": "https://www.youtube.com/@SpacePotatoee"
+		"YouTube - SpacePotatoes": "https://www.youtube.com/@SpacePotatoee"
 	},
 	"license": "LGPL-3.0-only",
 	"icon": "assets/spb-revamped/icon.png",
@@ -45,7 +46,8 @@
 		"modmenu": {
 			"links": {
 				"My Youtube": "https://www.youtube.com/@SpacePotatoee",
-				"Join the Discord!": "https://discord.gg/z3sfGTdjEn"
+				"Join SpacePotatoes Discord!": "https://discord.gg/z3sfGTdjEn",
+				"Join Minheur2000's Discord!": "https://discord.gg/2hmSmmnA4R"
 			},
 			"update_checker": false
 		}
@@ -64,7 +66,9 @@
 		"geckolib": ">=4.4.9"
 	},
 	"suggests": {
-		"mod-menu": "*"
+		"mod-menu": "*",
+		"essential": "*",
+		"camerapture": "*"
 	},
 	"breaks": {
 		"sodium": "*",

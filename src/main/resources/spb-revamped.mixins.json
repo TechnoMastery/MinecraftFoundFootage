@@ -1,6 +1,6 @@
 {
   "required": true,
-  "package": "com.sp.mixin",
+  "package": "net.minheur.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "BodyControlMixin",

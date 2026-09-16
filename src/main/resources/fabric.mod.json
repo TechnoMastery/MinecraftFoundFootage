@@ -18,22 +18,22 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"com.sp.SPBRevamped"
+          "net.minheur.SPBRevamped"
 		],
 		"client": [
-			"com.sp.SPBRevampedClient"
+          "net.minheur.SPBRevampedClient"
 		],
 		"fabric-datagen": [
-			"com.sp.SPBRevampedDataGenerator"
+          "net.minheur.SPBRevampedDataGenerator"
 		],
 		"cardinal-components": [
-			"com.sp.cca_stuff.InitializeComponents"
+			"net.minheur.cca_stuff.InitializeComponents"
 		],
 		"modmenu": [
-			"com.sp.init.ModMenuMenu"
+			"net.minheur.init.ModMenuMenu"
 		],
 		"voicechat": [
-			"com.sp.sounds.voicechat.BackroomsVoicechatPlugin"
+			"net.minheur.sounds.voicechat.BackroomsVoicechatPlugin"
 		]
 	},
 	"custom": {

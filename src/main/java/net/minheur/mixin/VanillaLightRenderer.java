@@ -14,9 +14,8 @@ public class VanillaLightRenderer {
 
     @Redirect(method = "render", at = @At(value = "INVOKE", target = "Lfoundry/veil/api/client/render/shader/program/ShaderProgram;setFloat(Ljava/lang/CharSequence;F)V"))
     private void noWeirdBrightnessThing(ShaderProgram instance, CharSequence name, float value, @Local(argsOnly = true) ClientWorld level, @Local Direction direction) {
-        if(level.getRegistryKey() == BackroomsLevels.POOLROOMS_WORLD_KEY){
+        if(level.getRegistryKey() == BackroomsLevels.POOLROOMS_WORLD_KEY)
             instance.setFloat("LightShading" + direction.ordinal(), 0.9f);
-        }
 
         instance.setFloat("LightShading" + direction.ordinal(), level.getBrightness(direction, true));
     }

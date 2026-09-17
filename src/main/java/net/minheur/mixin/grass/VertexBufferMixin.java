@@ -16,7 +16,7 @@ import static org.lwjgl.opengl.GL15C.glBindBuffer;
 import static org.lwjgl.opengl.GL40C.GL_PATCHES;
 import static org.lwjgl.opengl.GL40C.glDrawElementsIndirect;
 
-/***
+/**
  * Thanks Veil lol
  */
 @Mixin(VertexBuffer.class)
@@ -32,19 +32,17 @@ public class VertexBufferMixin implements RenderIndirectExtension {
     @Unique
     private int getDrawMode(int defaultMode) {
         ShaderProgram shader = VeilRenderSystem.getShader();
-        if (shader != null && shader.hasTesselation()) {
+        if (shader != null && shader.hasTesselation())
             return GL_PATCHES;
-        }
+
         return defaultMode;
     }
 
     @Override
     public void spb_revamped_1_20_1$drawIndirect() {
-        if (!RenderSystem.isOnRenderThread()) {
-            RenderSystem.recordRenderCall(() -> this.drawIndirect());
-        } else {
-            this.drawIndirect();
-        }
+        if (!RenderSystem.isOnRenderThread())
+            RenderSystem.recordRenderCall(this::drawIndirect);
+        else this.drawIndirect();
     }
 
     @Unique
@@ -56,6 +54,5 @@ public class VertexBufferMixin implements RenderIndirectExtension {
             glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, this.indexBufferId);
             glDrawElementsIndirect(this.getDrawMode(this.drawMode.glMode), this.indexType.glType, 0);
         }
-
     }
 }

@@ -14,8 +14,7 @@ public class RemoveBlockBreakParticlesMixin {
 
     @Inject(method = "addBlockBreakingParticles", at = @At("HEAD"), cancellable = true)
     private void cancel(BlockPos pos, Direction direction, CallbackInfo ci) {
-        if (SPBRevampedClient.shouldRenderCameraEffect()) {
+        if (SPBRevampedClient.shouldRenderCameraEffect())
             ci.cancel();
-        }
     }
 }

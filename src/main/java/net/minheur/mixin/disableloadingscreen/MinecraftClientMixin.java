@@ -13,9 +13,7 @@ public abstract class MinecraftClientMixin {
 
     @Redirect(method = "joinWorld", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/screen/ProgressScreen;setTitle(Lnet/minecraft/text/Text;)V"))
     private void doNothing(ProgressScreen instance, Text title){
-        if (SPBRevampedClient.isInBackrooms()) {
-            return;
-        }
+        if (SPBRevampedClient.isInBackrooms()) return;
 
         instance.setTitle(Text.translatable("connect.joining"));
     }
